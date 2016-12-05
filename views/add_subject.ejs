@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Edit</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<form method="post" action="/subjects/add">
+    ID: <br>
+    <input readonly type="text" name="subject_id" value="<%= (!!locals.id) ? id : '' %>">
+    <br> Nazwa przedmiotu: <br>
+    <input type="text" name="subject_name" value="<%= (!!locals.subject_name) ? subject_name : '' %>">
+
+    <br><input type="submit" value="Zapisz">
+</form>
+
+</body>
+</html>

@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About Edit</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<form method="post" action="/groups/add">
+    ID: <br>
+    <input readonly type="text" name="group_id" value="<%= (!!locals.id) ? id : '' %>">
+    <br> Nazwa grupy: <br>
+    <input type="text" name="group_name" value="<%= (!!locals.group_name) ? group_name : '' %>">
+
+    <br><input type="submit" value="Zapisz">
+</form>
+
+</body>
+</html>

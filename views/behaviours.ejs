@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+</head>
+<body>
+<h1>Lista uczniów</h1>
+<table>
+    <thead>
+    <tr>
+        <th> Id wpisu: </th>
+        <th> Imię: </th>
+        <th> Nazwisko: </th>
+        <th> Zachowanie: </th>
+        <th colspan=2>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<behavioursArray.length; i++) {%>
+    <tr>
+        <td><%= (!!locals.behavioursArray[i].id) ? locals.behavioursArray[i].id : 'No id' %></td>
+        <td><%= (!!locals.behavioursArray[i].student_details.student_name) ? locals.behavioursArray[i].student_details.student_name : 'No name' %></td>
+        <td><%= (!!locals.behavioursArray[i].student_details.student_surname) ? locals.behavioursArray[i].student_details.student_surname : 'No surname' %></td>
+        <td><%= (!!locals.behavioursArray[i].subject_details.subject_name) ? locals.behavioursArray[i].subject_details.subject_name: 'No behaviour name' %></td>
+        <td><a href="/behaviours_register/<%= locals.behavioursArray[i].id %>/edit"> Edit </a></td>
+        <td><a href="/behaviours_register/<%= locals.behavioursArray[i].id %>/remove"> Remove </a></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+</table>
+<a href="/behaviours_register/add">Dodaj</a><br><br>
+<a href="/">Powrót do strony głównej</a>
+
+</body>
+</html>

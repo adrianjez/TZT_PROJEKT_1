@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Subjects</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<table>
+    <thead>
+    <tr>
+        <th>Zachowanie ID: </th>
+        <th>Nazwa: </th>
+        <th colspan=2>Action</th>
+    </tr>
+    </thead>
+    <tbody>
+    <% for(var i=0; i<subjectsArray.length; i++) {%>
+    <tr>
+        <td><%= (!!locals.subjectsArray[i].id) ? locals.subjectsArray[i].id : 'No id' %></td>
+        <td><%= (!!locals.subjectsArray[i].subject_name) ? locals.subjectsArray[i].subject_name : 'No name' %></td>
+        <td><a href="/subjects/<%= locals.subjectsArray[i].id %>/edit"> Edit </a></td>
+        <td><a href="/subjects/<%= locals.subjectsArray[i].id %>/remove"> Remove </a></td>
+    </tr>
+    <% } %>
+    </tbody>
+</table>
+<a href="/subjects/add">Dodaj</a><br><br>
+<a href="/">Powrót do strony głównej</a>
+</body>
+</html>

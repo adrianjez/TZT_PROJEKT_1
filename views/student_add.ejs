@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dodaj ucznia</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<form id="add_student" method="post" action="/students/add">
+    ID: <br>
+    <input readonly type="text" name="student_id" value="<%= (!!student.id) ? student.id : '' %>">
+    <br> Imię: <br>
+    <input type="text" name="student_name" value="<%= (!!student.student_name) ? student.student_name : '' %>">
+    <br> Nazwisko: <br>
+    <input type="text" name="student_surname" value="<%= (!!student.student_surname) ? student.student_surname : '' %>">
+
+    <br><input type="submit" value="Zapisz">
+</form>
+<select name="group_id" form="add_student">
+    <% for(var i=0; i<groupsArray.length; i++) {%>
+        <option value="<%= groupsArray[i].id %>" <%= (groupsArray[i].id == student.group_id) ? 'selected' : '' %>>
+            <%= (!!locals.groupsArray[i].group_name) ? groupsArray[i].group_name : "No name"  %>
+        </option>
+    <% } %>
+</select>
+</body>
+</html>

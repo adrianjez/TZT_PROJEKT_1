@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>About</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+<table>
+    <thead>
+        <tr>
+            <th>Group ID: </th>
+            <th>Group name: </th>
+            <th colspan=2>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% for(var i=0; i<groupsArray.length; i++) {%>
+        <tr>
+            <td><%= (!!locals.groupsArray[i].id) ? locals.groupsArray[i].id : 'No id' %></td>
+            <td><%= (!!locals.groupsArray[i].group_name) ? locals.groupsArray[i].group_name : 'No name' %></td>
+            <td><a href="/groups/<%= locals.groupsArray[i].id %>/edit"> Edit </a></td>
+            <td><a href="/groups/<%= locals.groupsArray[i].id %>/remove"> Remove </a></td>
+        </tr>
+        <% } %>
+    </tbody>
+</table>
+<a href="/groups/add">Dodaj</a><br><br>
+<a href="/">Powrót do strony głównej</a>
+</body>
+</html>

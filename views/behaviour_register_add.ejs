@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ocen zachowanie</title>
+    <link rel='stylesheet' href='/stylesheets/style.css'/>
+</head>
+<body>
+
+
+<a>Wybierz studenta</a>
+<select name="student_id" form="add_behaviour">
+    <% for(var i=0; i<studentsArray.length; i++) {%>
+    <option value="<%= studentsArray[i].id %>" <%= (studentsArray[i].id == behaviour.student_id) ? 'selected' : '' %>>
+        <%= (!!locals.studentsArray[i].student_name) ? studentsArray[i].student_name : "No name"  %>
+    </option>
+    <% } %>
+</select>
+<br>
+<a>Wybierz zachowanie</a>
+<select name="subject_id" form="add_behaviour">
+    <% for(var i=0; i<behavioursArray.length; i++) {%>
+    <option value="<%= behavioursArray[i].id %>" <%= (behavioursArray[i].id == behaviour.subject_id) ? 'selected' : '' %>>
+        <%= (!!locals.behavioursArray[i].subject_name) ? behavioursArray[i].subject_name : "No name"  %>
+    </option>
+    <% } %>
+</select>
+<form id="add_behaviour" method="post" action="/behaviours_register/add">
+    ID: <br>
+    <input readonly type="text" name="behaviour_id" value="<%= (!!behaviour.id) ? behaviour.id : '' %>">
+    <br><input type="submit" value="Zapisz">
+</form>
+</body>
+</html>
